@@ -1,8 +1,9 @@
 ## Go Check Error
 
-> - Collecting Error Logs
-> - Printing error logs
-    >   - Print error log location
+- Collecting Error Logs
+- Printing error logs
+  - Print error log location
+
 
 ### init
 
