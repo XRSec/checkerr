@@ -2,10 +2,7 @@ module github.com/XRSec/checkerr
 
 go 1.17
 
-require (
-	github.com/Andrew-M-C/go.jsonvalue v1.2.0
-	github.com/fatih/color v1.13.0
-)
+require github.com/fatih/color v1.13.0
 
 require (
 	github.com/mattn/go-colorable v0.1.9 // indirect
