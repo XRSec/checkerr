@@ -48,3 +48,7 @@ func Warning(noticeTXT, resultTXT string) {
 	color.New(color.FgGreen).PrintfFunc()("%v\n", resultTXT)
 	ErrorsData[noticeTXT] = resultTXT
 }
+
+func ErrorData() map[string]string {
+	return ErrorsData
+}
