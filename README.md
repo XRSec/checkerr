@@ -22,6 +22,7 @@ checkerr.Notice("Print Notice", "Result")
 
 ```go
 func main() {
+	var err error
 	if err := errors.New(Error Message); err != nil {
 		checkerr.Log("main", err) // AppName main
 	}
