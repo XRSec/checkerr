@@ -1,4 +1,4 @@
-module checkerr
+module github.com/XRSec/checkerr
 
 go 1.17
 
