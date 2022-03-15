@@ -1,8 +1,6 @@
 package checkerr
 
 import (
-	"errors"
-	"fmt"
 	"github.com/fatih/color"
 	"path"
 	"runtime"
@@ -13,6 +11,10 @@ import (
 var (
 	ErrorsData map[string]string
 )
+
+func init() {
+	ErrorsData = make(map[string]string)
+}
 
 func Log(appName string, err error) {
 	if err != nil {
@@ -45,29 +47,4 @@ func Warning(noticeTXT, resultTXT string) {
 	color.New(color.FgRed).PrintfFunc()(" %v", noticeTXT)
 	color.New(color.FgGreen).PrintfFunc()("%v\n", resultTXT)
 	ErrorsData[noticeTXT] = resultTXT
-}
-func main() {
-	ErrorsData = make(map[string]string)
-	for i := 0; i < 2; i++ {
-		Notice("Notice "+time.Now().Format("15:04:05.00000"), "Result "+strconv.Itoa(i))
-		Error("Error "+time.Now().Format("15:04:05.00000")+" ", "Result "+strconv.Itoa(i))
-		Warning("Warning "+time.Now().Format("15:04:05.00000")+" ", "Result "+strconv.Itoa(i))
-		fmt.Println("----------------------")
-		if i == 0 {
-			if err := errors.New(strconv.Itoa(i)); err != nil {
-				Log("main", err)
-				fmt.Println("The ErrorsData = ", ErrorsData)
-			}
-		} else {
-			//ErrorsData = make(map[string]string)
-			if err := errors.New(strconv.Itoa(i)); err != nil {
-				Log("main", err)
-				fmt.Println("The ErrorsData = ", ErrorsData)
-			}
-		}
-	}
-	fmt.Println("----------------------")
-	for i, v := range ErrorsData {
-		Warning(i, v)
-	}
 }
